@@ -1,3 +1,4 @@
+
 // Primary
 $Red: hsl(0, 100%, 74%);
 $Green: hsl(154, 59%, 51%);
@@ -13,19 +14,24 @@ $GrayishBlue: hsl(246, 25%, 77%);
 
 
 *{
+    font-family: 'Poppins', sans-serif;
     margin: 0%;
     padding: 0;
     box-sizing: border-box;
 }
+
+
 body{
     background-color: $Red;
     background-image: url("./images/bg-intro-desktop.png");
     height: 100vh;
+    min-height: 600px;
     width: 100vw;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 .content{
     height: 100%;
@@ -42,7 +48,7 @@ body{
     justify-content: center;
     .article{
         color:white;
-        width: 80%;
+        width: 100%;
 
         h1{
             font-size: 3.5vw;
@@ -64,7 +70,8 @@ body{
     display: flex;
     align-items:center;
     .login-container{
-        height: 80%;
+        height: 90%;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -78,33 +85,242 @@ body{
     width: 100%;
     height: 10%;
     background: $Blue;
-    border-radius: 8px;
+    border-radius: 15px;
     color: white;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 1vw;
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 13px 5px -5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000, 0px 13px 5px -5px rgba(0,0,0,0);
     span{
+        margin-left: 2px;
         font-weight: 500;
     }
 }
 
 .form-container{
-    border-radius: 8px;
+    border-radius: 15px;
     background: white;
     display: flex;
     flex-direction: column;
     padding: 8%;
-    height: 80%;
+    height: 85%;
+    padding-bottom: 0;
+    .form-name{
+        margin-bottom: 7%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .first-name{
+            height: 12%;
+            width: 48%;
+            position: relative;
+        }
+        .last-name{
+            height: 12%;
+            width: 48%;
+            position: relative;
+        }
+        input{
+            padding:15%;
+        }
+    }
+    div{
+        height: 12%;
+        position: relative;
+    }
     input{
         border: $GrayishBlue 1px solid;
-        border-radius: 3px;
-        height: 12%;
-        margin-bottom: 5%;
+        border-radius: 5px;
+        height: 100%;
         padding: 5%;
         outline: none;
+        font-size: 1vw;
+        font-weight: 600;
+        width: 100%;
+    }
+    input::placeholder{
+        color: $DarkBlue;
+        font-size: 1vw;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+    input::-moz-placeholder{
+        color: $DarkBlue;
+        opacity: 0.8;
+    }
+    input::-webkit-input-placeholder{
+        color: $DarkBlue;
+        opacity: 0.8;
+    }
+
+    p{
+        font-size: 0.8vw;
+        padding-top: 3%;
+        color:$GrayishBlue;
+        span{
+            color: $Red;
+            cursor: pointer;
+        }
+    }
+    .error-message{
+        font-size: 1vw;
+        padding: 0;
+        color: $Red;
+        visibility: hidden;
+    }
+    .show{
+        visibility: visible;
     }
 }
 .form-container input:focus{
     border: $Blue 1px solid;
+}
+.form-button{
+    height: 12%;
+    background-color: $Green;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1vw;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.form-button:hover{
+    background-color: hsl(154, 97%, 64%);;
+}
+
+.check-icon{
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    background-color: $Green;
+    background-image: url('./images/icon-check.svg');
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    z-index: 2;
+    border-radius: 50%;
+    top: 30%;
+    right: 5%;
+    visibility: hidden;
+}
+#date-icon{
+    right: 12%;
+}
+
+.check-valid-name{
+    right: 5%;
+    top: 180%;
+}
+.check-invalid{
+    background-color: $Red;
+    background-image: url('./images/icon-error.svg');
+}
+
+@media (max-aspect-ratio:7/5),(max-width:600px){
+    body{
+        min-height: 100vh;
+        height: auto;
+    }
+    .content{
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+    }
+    .left-side {
+
+        .article {
+            color: white;
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            h1{
+                font-size: 40px;
+                line-height: 1;
+                padding: 40px 0;
+                padding-top: 40px;
+                padding-top: 20%;
+            }
+            p{
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+    .login-section{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .login-container{
+            width: 100%;
+            height: auto;   
+                .try-7{
+                    height: 80px;
+                    padding: 20px;
+                    margin: 50px 0 30px 0;
+                    font-size: 14px;
+                }
+                .form-container{
+                    height: auto;
+                    padding: 20px;
+                    margin-bottom: 10px;
+                    input{
+                        height: 40px;
+                        font-size: 14px;
+                    }
+                    input::placeholder {
+                        color: #3e3c49;
+                        font-size: 14px;
+                        font-weight: 600;
+                        opacity: 0.8;
+                    }
+                    input:-ms-input-placeholder{
+                        color: #3e3c49;
+                        font-size: 14px;
+                        font-weight: 600;
+                        opacity: 0.8;
+                    }
+                    input::-webkit-input-placeholder{
+                        color: #3e3c49;
+                        font-size: 14px;
+                        font-weight: 600;
+                        opacity: 0.8;
+                    }
+                    .error-message{
+                        font-size: 10px;
+                        margin-bottom: 10px;
+                        color: $Red;
+                        text-align: start;
+                    }
+                    .no-margin{
+                        margin-bottom: 0;
+                    }
+                    .form-button{
+                        height: 50px;
+                        font-size: 16px;
+                        border-radius: 5px;
+                    }
+                    .form-terms{
+                        font-size: 12px;
+                        padding-top: 10px;
+                        color: #b9b6d3;
+                        text-align: center;
+                    }
+                }
+        }
+    }
+
+    .check-icon{
+        width: 20px;
+        height: 20px;
+    }
+    .check-valid-name{
+        right: 5%;
+        top: 30%;
+    }
 }

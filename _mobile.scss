@@ -1,0 +1,11 @@
+@media (max-aspect-ratio:6/5){
+    body{
+        min-height: 100vh;
+        height: auto;
+    }
+    .content{
+        flex-direction: column;
+        min-height: 100vh;
+        height: auto;
+    }
+}
